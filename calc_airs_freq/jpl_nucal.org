@@ -1,0 +1,50 @@
+#+TITLE: AIRS Frequency Calibration Model for L1c
+#+AUTHOR: L. Larrabee Strow
+#+OPTIONS: H:4 toc:nil num:t
+#+LaTeX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER: \input article_setup
+#+LATEX_HEADER: \usepackage[section]{placeins}
+#+LATEX_HEADER: \usepackage{siunitx}
+#+LATEX_HEADER: \hypersetup{colorlinks=true,citecolor=cyan,linkcolor=blue,urlcolor=blue}
+
+* Introduction
+
+This packages contains codes to compute the AIRS channel frequencies
+over time.  See =test_freqcal.m= for an example of how to use these
+codes.  The =ab.mat= file contains the channel AB states versus time,
+there is an entry for every channel property file.  I can provide
+the code to read these files if desired.
+
+This package is located on my JPL account in
+=/home/strow/Work/JPL_nucal=.  You can also get updates from github at
+\url(https://github.com/strow/JPL_nucal).  
+
+* Example Run
+
+Run =test_freqcal.m= to test.  It will create two plots.  One shows
+the change in wavenumber of the center of channel 600 versus time.
+The second plot shows the variation in AB state of that channel versus
+time.  This channel was chosen since it's AB state changed three
+times. 
+
+* Status of AIRS Frequency Calibration
+
+I recently measured the AIRS frequency calibration for the M3 module
+over time using daily averaged clear-scenes in a narrow latitude band
+at the equator, descending node, ocean only.  
+
+The result is shown in the following figure.  This figure basically
+confirms that the exponential decay determine from the first 10 years
+of orbit is still good enough to use for later times.  
+
+This is preliminary, since I have modified the mean level of the M3
+measured frequency calibration to match the output of =get_yoff.m=.  I
+am working to understand why I had to do this, but I suspect it is
+just a programming issue.
+
+#+ATTR_LATEX: :width .9\linewidth
+#+LABEL: fig1
+#+ATTR_HTML: :width 600 :align center
+#+CAPTION: Relative variation in module M3 from clear-ocean spectra compared to output of get_yoff.m
+[[./m3_compare_with_calc_to2015.pdf]]
