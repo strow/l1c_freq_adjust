@@ -15,7 +15,7 @@ coeff = 'umbc_1c';
 
 % kcarta test data
 %kcdir = '/home/motteler/cris/sergio/JUNK2012/';
-kcdir = 'Kcarta_mono_calcs/';
+kcdir = './Kcarta_mono_calcs/';
 
 flist =  dir(fullfile(kcdir, 'convolved_kcart*.mat'));
 
