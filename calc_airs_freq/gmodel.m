@@ -1,4 +1,4 @@
-function [f_lm,freq,m_lm,module] = gmodel(temp,yoff,abside);
+function [f_lm,freq,m_lm,module,width] = gmodel(temp,yoff,abside);
 % function [f_lm,freq,m_lm,module,w_lm,width] = gmodel(temp,yoff,abside);
 
 % function [f_lm,freq,m_lm,module,w_lm,width] = gmodelall4(temp,yoff,abside);
@@ -114,7 +114,7 @@ gmb = load('finalgm_b_avg');
 gmboth = load('finalgm');
 
 % Load smoothed widths
-% load widths
+load widths
 
 % Grating order and side
 % module  1a 2a 1b 2b 4a 4b  3 4c 4d  5  6  7  8  9 10 11 12
@@ -191,13 +191,13 @@ for m=1:17
 % % Calc shifted widths
 %       w = polyval(coef,nu);
 %    else
-%       w = widthavg(m).w;
+       w = widthavg(m).w;
 %    end
    f_lm_both(newind) = nuboth;
    f_lm_a(newind) = nua;
    f_lm_b(newind) = nub;
    m_lm(newind) = mod_list(m);
-%    w_lm(newind) = w;
+    w_lm(newind) = w;
 end  
 
 % Load sort key to go from LM ordering to JPL 
@@ -218,7 +218,7 @@ freq(abw == 1) = freq_a(abw == 1);
 freq(abw == 2) = freq_b(abw == 2);
 
 % load up widths in JPL order
-% width(ind) = w_lm;
+width(ind) = w_lm;
 
 % load up Module ID's (M1b, M4d, etc.) in JPL order
 module(ind)= m_lm;
